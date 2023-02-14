@@ -1,0 +1,529 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    
+}
+/* BACKGROUND CSS */
+.hero{
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(black,#7a7a7a)
+}
+/* MENU NAVEGAÇÃO CSS */ 
+nav{
+    background: #1a1a1a;
+    width: 100%;
+    padding: 10px 10%;
+    display: flex; 
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+/*LOGO E ESCRITA CSS */
+.logo{
+    width: 100px;
+    margin-right: 16px;
+    
+}
+
+h3{
+    font-size: 36px;
+    position: absolute;
+    top: 32%;
+    left: 16.5%;
+    font-family: 'Zen Dots', cursive;
+    color: #e00b0b;
+    
+    
+}
+
+@media screen and (max-width: 770px){
+    
+    .logo{
+        width: 100px;
+        flex-basis: 100%;
+        
+    }
+
+    h3{
+        font-size: 0;
+        
+    }
+
+}
+
+/* MENU E SUB MENU CSS */
+
+.user-pic{
+    width: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 30px;
+}
+
+nav ul{
+    width: 100%;
+    text-align: right;
+}
+
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px;
+}
+
+nav ul li a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.sub-menu-wrap{
+    position: absolute;
+    top: 100%;
+    right: 10%;
+    width: 320px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+    z-index: 11;
+
+}
+
+.sub-menu-wrap.open-menu{
+    max-height: 300px;
+    z-index: 11;
+}
+
+.sub-menu{
+    background: #fff;
+    padding: 20px;
+    margin: 10px;
+}
+
+.user-info{
+    display: flex;
+    align-items: center;
+}
+
+.user-info h4{
+    font-weight: 500;
+}
+
+.user-info img{
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.sub-menu hr{
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background: #ccc;
+    margin: 15px 0 10px;
+}
+
+.sub-menu-link{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #525252;
+    margin: 12px 0;
+}
+
+.sub-menu-link p{
+    width: 100%;
+}
+
+.sub-menu-link img{
+    width: 40px;
+    background: #e5e5e5;
+    border-radius: 50%;
+    padding: 8px;
+    margin-right: 15px;
+}
+
+.sub-menu-link span{
+    font-size: 22px;
+    transition: transform 0.5s;
+}
+
+.sub-menu-link:hover span{
+    transform: translateX(5px);
+}
+
+.sub-menu-link:hover p{
+    font-weight: 600;
+}
+
+/* CSS LINHA */
+
+.linha{
+    position: relative;
+    width: 77%;
+    height: 6px;
+    background: #fff;
+    -webkit-box-reflect: below 1px linear-gradient(transparent,#0005);
+    margin: auto;
+    
+    
+}
+
+.linha::before{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg,#fb0094,#0000ff,#00ff00,#ffff00,#fb0094,#00ff00,#ffff00,#fb0094);
+    animation: animate 20s linear infinite;
+    background-size: 500%;
+}
+
+.linha::after{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg,#fb0094,#0000ff,#00ff00,#ffff00,#fb0094,#00ff00,#ffff00,#fb0094);
+    animation: animate 20s linear infinite;
+    background-size: 500%;
+    filter: blur(20px);
+}
+
+@keyframes animate
+{
+    0%
+    {
+        background-position: 0 0;
+    }
+    0%
+    {
+        background-position: 500% 0;
+    }
+}
+
+
+/* BOAS VINDAS AO USUARIO CSS */
+h2{
+    color: #ffffff;
+    padding: 10px 11.5%;
+}
+
+/*  STATUS JOGADOR CSS*/
+
+.container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 50px;
+}
+
+.container .card{
+    position: relative;
+    width: 312px;
+    height: 280px;
+    background: #2a2a2a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .card .percent{
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+.container .card .percent svg
+{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    transform: rotate(270deg);
+}
+
+.container .card .percent svg circle
+{
+    width: 100%;
+    height: 100%;
+    fill: transparent;
+    stroke-width: 2;
+    stroke: #191919;
+    transform: translate(5px,5px);
+}
+
+.container .card .percent svg circle:nth-child(2)
+{
+    stroke: var(--clr);
+    stroke-dasharray: 440;
+    stroke-dashoffset: calc(440 - (440 * var(--num)) / 100);
+    opacity: 0;
+    animation: fadeIn 1s linear forwards;
+    animation-delay: 2.0s;
+}
+
+@keyframes fadeIn
+{
+    0%
+    {
+        opacity: 0;
+    }
+    100%
+    {
+        opacity: 1;
+    }
+}
+
+.dot{
+    position: absolute;
+    inset: 5px;
+    z-index: 10;
+    transform: rotate(calc(3.6deg * var(--num)));
+    /* 360deg / 100 = 3.6*/
+    animation: animateDot 2s linear forwards;
+}
+
+@keyframes animateDot
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(calc(3.6deg * var(--num)));
+    }
+}
+
+.dot::before{
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--clr);
+
+    box-shadow: 0 0 10px var(--clr), 0 0 30px var(--clr);
+}
+
+.number{
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    animation: fadeIn 1s linear forwards;
+    animation-delay: 2.0s;
+}
+
+.number h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 2.5em;
+}
+
+.number h2 span{
+    font-weight: 300;
+    color: #fff;
+    font-size: 0.5em;
+}
+
+.number p{
+    font-weight: 300;
+    font-size: 0.75em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+/* Dúvidas CSS */
+
+#duvida{
+    width: 100%;
+    padding: 70px 0;
+    
+}
+
+.title-text{
+    text-align: center;
+    padding-bottom: 70px;
+}
+
+.title-text p{
+    margin: auto;
+    font-size: 25px;
+    color: #000000;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    font-family: 'Keania One', cursive; 
+}
+
+.title-text p::after{
+    content: '';
+    width: 50px;
+    height: 35px;
+    background: linear-gradient(#ff0000,rgb(0, 0, 0));
+    position: absolute;
+    top: -20px;
+    left: 30px;
+    z-index: -1;
+    transform: rotate(10deg);
+    border-top-left-radius: 35px;
+    border-bottom-right-radius: 35px;
+}
+
+.title-text h1{
+    font-size: 50px;
+    font-family: 'Keania One', cursive;
+    color: rgb(0, 0, 0);
+}
+
+/* Form Duvidas CSS */
+
+.form{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form{
+    background: rgb(139, 139, 139);
+    display: flex;
+    flex-direction: column;
+    padding: 2vw 4vw;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+form h4{
+    color: rgb(0, 0, 0);
+    font-weight: 800;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+form input, form textarea{
+    border: 0;
+    margin: 10px 0;
+    padding: 20px;
+    outline: none;
+    background: #f5f5f5;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+form button{
+    padding: 15px;
+    background: #9c0101;
+    color: #fff;
+    font-size: 18px;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    width: 150px;
+    margin: 20px auto 0;
+    border-radius: 30px;
+}
+
+@media screen and (max-width: 770px)
+{
+    form{
+        flex-basis: 100%;
+    }
+
+    .form{
+        flex-basis: 100%;
+    }
+}
+
+/* Load */ 
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: black;
+    
+}
+
+.center{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.ring{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    animation: ring 2s linear infinite;
+}
+
+@keyframes ring{
+    0%{
+        transform: rotate(0deg);
+        box-shadow: 1px 5px 2px #e65c00;
+    }
+    50%{
+        transform: rotate(180deg);
+        box-shadow: 1px 5px 2px #18b201;
+    }
+    100%{
+        transform: rotate(360deg);
+        box-shadow: 1px 5px 2px #0456c8;
+    }
+}
+
+.ring:before{
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(255, 255, 255, .3);
+}
+
+.center span{
+    color: #737373;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 200px;
+    animation: text 3s ease-in-out infinite;
+}
+
+@keyframes text {
+    50%{
+        color: black;
+    }
+}
+
+.end-loader {
+    opacity: 0; /* make the loader disappeared  after the page have been loading */
+    transition: 2s ease-in-out; /* and some transtion*/
+}
+
+
+
